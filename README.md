@@ -1,59 +1,73 @@
-# Titanic Survival Prediction using Machine Learning
+# Titanic Dataset - Data Acquisition, Cleaning and Exploratory Data Analysis
 
-## Project Overview
-This project predicts whether a passenger survived the Titanic disaster using Machine Learning.
+## Overview
 
-## Student Details
-- Name: Shankar Kumar
-- Project: AI/ML Capstone Project
-
-## Algorithm Used
-- Random Forest Classifier
+This project performs data acquisition, data cleaning, exploratory data analysis (EDA), correlation analysis and visualization on the Titanic dataset. Missing values are handled, duplicate records are checked, data types are corrected, outliers are analyzed using the IQR method, and different visualizations are created to better understand the dataset.
 
 ## Dataset
-- Titanic Dataset
-- Total Records: 891
 
-## Features Used
-- Passenger ID
-- Passenger Class
-- Sex
-- Siblings/Spouse
-- Parents/Children
-- Fare
-- Embarked
-- Age Group
-- Family Size
-- Is Alone
-- Title
+- Dataset: Titanic Train Dataset
+- Total Rows: 891
+- Total Columns: 12 (before cleaning)
+- Cleaned Dataset: cleaned_data.csv
 
-## Technologies Used
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Streamlit
-- Joblib
+## Data Cleaning
 
-## Model Accuracy
-**85.47%**
+- Loaded the dataset using pandas.
+- Checked dataset shape and data types.
+- Calculated missing values and their percentages.
+- Removed the Cabin column because it had a large number of missing values.
+- Filled missing Age values using the median.
+- Filled missing Embarked values using the mode.
+- Checked duplicate records and found no duplicates.
+- Converted suitable columns to category type to reduce memory usage.
 
-## How to Run
+## Descriptive Statistics
 
-Install dependencies
+The numerical columns were analyzed using descriptive statistics. The Age column had an average value close to 29 years. The Fare column showed high variation because a few passengers paid much higher ticket prices than others.
 
-```bash
-pip install -r requirements.txt
-```
+## Skewness Analysis
 
-Run the application
+The Fare column had the highest positive skewness (around 4.79). This indicates that most passengers paid lower fares while a small number paid very high fares. Since the Fare distribution is highly skewed, the median is more reliable than the mean for handling missing values because it is less affected by extreme values.
 
-```bash
-streamlit run app.py
-```
+## Outlier Detection (IQR)
 
-## Output
-The application predicts whether the passenger survived and also displays the survival probability.
+Outliers were detected using the IQR method.
 
-## Author
-Shankar Kumar
+- Age: 66 outliers were found.
+- Fare: 116 outliers were found.
+
+The outliers were not removed because they may represent valid passenger information rather than incorrect data.
+
+## Visualizations
+
+The following visualizations were created:
+
+- Age Line Plot
+- Average Fare by Gender (Bar Chart)
+- Fare Distribution (Histogram)
+- Age vs Fare (Scatter Plot)
+- Age Distribution by Gender (Box Plot)
+- Spearman Correlation Heatmap
+
+## Correlation Analysis
+
+Both Pearson and Spearman correlation matrices were calculated.
+
+- Fare and Pclass showed a strong negative correlation, indicating that passengers in higher classes generally paid higher fares.
+- SibSp and Parch showed a moderate positive correlation because family members often travelled together.
+- Spearman correlation was also calculated to better understand monotonic relationships between numerical variables.
+
+## Grouped Aggregation
+
+The Fare column was grouped by Sex.
+
+Results:
+
+- Female passengers had the highest average fare.
+- Female passengers also had the highest standard deviation in fare.
+- The ratio between the highest and lowest average fare was approximately **1.74**, showing that female passengers paid higher fares on average.
+
+## Conclusion
+
+The dataset was successfully cleaned and explored. Missing values were handled, duplicate records were checked, data types were optimized, outliers were analyzed, and multiple visualizations were created. Correlation analysis and grouped aggregation provided additional insights into the dataset. Finally, the cleaned dataset was saved as **cleaned_data.csv** for use in the next stages of the project.
