@@ -103,3 +103,45 @@ The dataset was successfully cleaned and explored. Missing values were handled, 
 ## Bootstrap Confidence Interval
 - Estimated the confidence interval for AUC using bootstrap sampling.
 - The confidence interval includes zero, indicating no statistically significant difference.
+
+# Question 3 – Advanced Modeling
+
+## Decision Tree Baseline
+- Trained a default Decision Tree classifier.
+- Training accuracy was higher than testing accuracy, indicating overfitting.
+
+## Controlled Decision Tree
+- Applied max_depth=5 and min_samples_split=20.
+- Reduced overfitting and improved model generalization.
+
+## Gini vs Entropy
+- Compared Gini and Entropy criteria.
+- Both produced similar results, with Entropy performing slightly better.
+
+## Random Forest
+- Trained Random Forest with 100 estimators.
+- Evaluated using Accuracy and ROC-AUC.
+- Displayed the Top 5 important features.
+
+## Gradient Boosting
+- Trained Gradient Boosting Classifier.
+- Achieved strong ROC-AUC performance.
+
+## Cross Validation
+- Compared Logistic Regression, Decision Tree, Random Forest and Gradient Boosting using 5-Fold Cross Validation.
+- Gradient Boosting achieved the best average ROC-AUC.
+
+## GridSearchCV
+- Tuned Random Forest hyperparameters using GridSearchCV.
+- Best parameters were selected automatically based on ROC-AUC.
+
+## Manual Learning Curve
+- Trained the best model using different fractions of the training data.
+- Training and Test ROC-AUC remained stable, showing good generalization.
+
+## Model Serialization
+- Saved the best model as **best_model.pkl**.
+- Reloaded the model successfully and verified predictions.
+
+## Summary
+Gradient Boosting produced the best overall performance with the highest ROC-AUC and stable cross-validation results. It is recommended as the final model for deployment.
