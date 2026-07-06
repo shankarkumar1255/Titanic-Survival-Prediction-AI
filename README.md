@@ -71,3 +71,35 @@ Results:
 ## Conclusion
 
 The dataset was successfully cleaned and explored. Missing values were handled, duplicate records were checked, data types were optimized, outliers were analyzed, and multiple visualizations were created. Correlation analysis and grouped aggregation provided additional insights into the dataset. Finally, the cleaned dataset was saved as **cleaned_data.csv** for use in the next stages of the project.
+
+---
+
+# Question 2 - Machine Learning Models
+
+## Linear Regression
+- Trained a Linear Regression model.
+- Evaluated using Mean Squared Error (MSE) and R² Score.
+
+## Ridge Regression
+- Applied Ridge Regression to reduce overfitting.
+- Compared its performance with Linear Regression.
+
+## Logistic Regression
+- Built a Logistic Regression classifier.
+- Evaluated using Accuracy, Precision, Recall and F1 Score.
+
+## ROC Curve and AUC
+- Generated ROC Curve.
+- Achieved an AUC score of approximately 0.978.
+
+## Threshold Analysis
+- Compared different probability thresholds (0.30, 0.40, 0.50, 0.60 and 0.70).
+- Observed changes in Precision, Recall and F1 Score.
+
+## Regularization
+- Applied Logistic Regression with C = 0.01.
+- Compared Accuracy and AUC with the default model.
+
+## Bootstrap Confidence Interval
+- Estimated the confidence interval for AUC using bootstrap sampling.
+- The confidence interval includes zero, indicating no statistically significant difference.
